@@ -1,6 +1,17 @@
 const content = document.querySelector("main");
 const header_button = document.querySelector("button");
 
+function darkenTile(e) {
+    let tiles_brightness = e.target.style.filter.match(/[0-9]+/);
+
+    if(tiles_brightness === null)
+        tiles_brightness = 100;
+    else
+        tiles_brightness = Number(tiles_brightness);
+
+    e.target.style.setProperty("filter", `brightness(${tiles_brightness - 10}%)`);
+}
+
 function setRandomColor(e) {
     e.target.style.setProperty("background-color", `${'#' + Math.floor(Math.random()*16777215).toString(16)}`);
 }
@@ -20,6 +31,7 @@ function createDivElements(squares_per_side = 16)
             single_div = document.createElement("div");
             single_div.classList.add("tile");
             single_div.addEventListener("mouseenter", setRandomColor);
+            single_div.addEventListener("click", darkenTile);
 
             divs_container.appendChild(single_div);
         }
