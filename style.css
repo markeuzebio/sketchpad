@@ -7,10 +7,21 @@ body {
 }
 
 main {
-    width: 100vw;
-    height: 100vh;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
+    width: 90vw;
+    height: 90vh;
+    margin: 1em auto;
+}
+
+.tile {
+    flex: 1 0 auto;
+    background-color: purple;
+    border: 1px solid black;
+}
+
+.tiles_container {
+    display: flex;
+    flex: 1 0 auto;
+    width: 100%;
 }

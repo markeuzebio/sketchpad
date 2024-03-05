@@ -4,23 +4,33 @@ const header_button = document.querySelector("button");
 function createDivElements(squares_per_side = 16)
 {
     let single_div;
-    let counter;
-
-    counter = 1;
+    let divs_container;
 
     for(let i = 1 ; i <= squares_per_side ; i++)
     {
+        divs_container = document.createElement("div");
+        divs_container.classList.add("tiles_container");
+
         for(let j = 1 ; j <= squares_per_side ; j++)
         {
             single_div = document.createElement("div");
-            single_div.style.setProperty("width", `${Math.floor(1 / squares_per_side * 100)}%`);
-            single_div.style.setProperty("height",`${Math.floor(1 / squares_per_side * 100)}%`);
-            single_div.style.setProperty("background-color", "purple");
+            single_div.classList.add("tile");
             single_div.addEventListener("mouseenter", (e) => e.target.style.setProperty("background-color", "black"));
-            content.appendChild(single_div);
-            counter++;
+
+            divs_container.appendChild(single_div);
         }
+
+        content.appendChild(divs_container);
     }
+}
+
+function removeDivElements()
+{
+    const divs = document.querySelectorAll(".tiles_container");
+
+    divs.forEach(function (e) {
+        e.remove();
+    })
 }
 
 function getSquaresPerSide()
@@ -41,11 +51,14 @@ function addClickEventToButton() {
         let squares_per_side;
 
         squares_per_side = getSquaresPerSide();
-
-        if(squares_per_side != -1)
-            console.log("Given number is valid!");
+        
+        if(squares_per_side == -1)
+            return;
         else
-            console.log("Given number is NOT valid!");
+        {
+            removeDivElements();
+            createDivElements(squares_per_side);
+        }
     });
 }
 
