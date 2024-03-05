@@ -1,9 +1,18 @@
+body {
+    background-color: #15202B;
+    margin: 0px;
+}
+
 header {
+    margin-top: 0.5em;
     text-align: center;
 }
 
-body {
-    margin: 0px;
+button {
+    padding: 0.3em;
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 10px;
 }
 
 main {
@@ -11,7 +20,7 @@ main {
     flex-direction: column;
     width: 90vw;
     height: 90vh;
-    margin: 1em auto;
+    margin: 0.5em auto;
 }
 
 .tile {
