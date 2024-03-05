@@ -1,6 +1,10 @@
 const content = document.querySelector("main");
 const header_button = document.querySelector("button");
 
+function setRandomColor(e) {
+    e.target.style.setProperty("background-color", `${'#' + Math.floor(Math.random()*16777215).toString(16)}`);
+}
+
 function createDivElements(squares_per_side = 16)
 {
     let single_div;
@@ -15,7 +19,7 @@ function createDivElements(squares_per_side = 16)
         {
             single_div = document.createElement("div");
             single_div.classList.add("tile");
-            single_div.addEventListener("mouseenter", (e) => e.target.style.setProperty("background-color", "black"));
+            single_div.addEventListener("mouseenter", setRandomColor);
 
             divs_container.appendChild(single_div);
         }

@@ -16,7 +16,7 @@ main {
 
 .tile {
     flex: 1 0 auto;
-    background-color: purple;
+    background-color: white;
     border: 1px solid black;
 }
 
